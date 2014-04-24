@@ -1,0 +1,8 @@
+<div class="row">
+  <h1>Index</h1>
+    <ul>
+      <li class="small-6 column left" ng-repeat="link in recipes | orderBy:'style'">
+          Page : {{$index + 1}} - <a ng-href="/recipe/{{link.id}}">{{link.name}}</a>
+      </li>
+    </ul>
+</div>

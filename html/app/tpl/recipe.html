@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="column medium-12">
+    <a ng-href="/edit/{{recipe.id}}" class="left button tiny"><i class="fa fa-pencil"></i></a><h2 class="left">{{recipe.name}}</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="column medium-6"><img ng-src="{{recipe.image}}" alt=""></div>
+  <div class="column medium-6">
+    <div class="column medium-12"><h3>info</h3></div>
+    <hr>
+    <ul class="no-bullet">
+      <li ng-repeat="info in recipe.info">
+      <span ng-if="!info[1]">
+
+      </span>
+        {{info[0]}} : {{info[1]}}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="column medium-4">
+    <div class="column medium-12">
+      <h4>
+        Ingredents
+      </h4>
+    </div>
+    <div class="column medium-12">
+      <table style="width:100%">
+        <tbody>
+          <tr ng-repeat="ing in recipe.ingredents">
+            <td>{{ing[0]}}</td>
+            <td>{{ing[2]}}:{{ing[1]}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="column medium-8">
+    <h4>
+      Directions
+    </h4>
+    <hr>
+    <p>
+      {{recipe.directions }}
+    </p>
+  </div>
+</div>

@@ -1,0 +1,180 @@
+<div class="row">
+  <div class="large-12">
+    <h1>Update Recipe</h1>
+  </div>
+</div>
+<form name="add" ng-submit="submit()" novalidate>
+
+<div class="row">
+  <div class="column medium-12">
+    <label ng-class="{ 'error' : add.recipe.$invalid && !add.recipe.$pristine }">Recipe Name
+      <input type="text" name="recipe" class="" placeholder="Chicken Pizza" ng-model="recipe.name"  required/>
+    </label>
+    <small class="error" ng-show="add.recipe.$invalid && !add.recipe.$pristine">Invalid entry</small>
+  </div>
+</div>
+<div class="row">
+  <div class="column medium-6">
+    <label ng-class="{ 'error' : add.category.$invalid && !add.category.$pristine }">Category <br>
+    <a dropdown-toggle="#dropdown-example-1" class="button tiny" ng-hide="newCat">{{recipe.category || "Choose Category"}}</a>
+    <ul id="dropdown-example-1" class="f-dropdown">
+      <li ng-repeat="category in categorys">
+        <a ng-click="changeCategory()">{{category}}</a>
+      </li>
+      <li><a href="" ng-click="newCat = true">+ New Category</a></li>
+    </ul>
+    <input type="text" name="newCategory"placeholder="Chicken" ng-model="recipe.category" required ng-show="newCat"/>
+    </label>
+    <small class="error" ng-show="add.category.$invalid && !add.category.$pristine">Invalid entry</small>
+  </div>
+</div>
+<div class="row">
+  <div class="column medium-6">
+    <label ng-class="{ 'error' : add.image.$invalid && !add.image.$pristine }">Recipe Image
+      <input type="text" name="image"placeholder="http://google.com/coolimage" ng-model="recipe.image" required/>
+    </label>
+    <small class="error" ng-show="add.image.$invalid && !add.image.$pristine">Invalid entry</small>
+    <img ng-src="{{recipe.image}}" alt="" ng-show="recipe.image">
+  </div>
+
+  <div class="column medium-6">
+    <div class="column medium-12"><h3>info</h3></div>
+    <hr>
+    <div class="row">
+      <div class="column medium-6">
+        <label ng-class="{ 'error' : add.totalTime.$invalid && !add.totalTime.$pristine }">Total Time
+          <input type="text" name="totalTime" placeholder="55" ng-model="recipe.info[0][0]" required/>
+        </label>
+        <small class="error" ng-show="add.totalTime.$invalid && !add.totalTime.$pristine">Invalid entry</small>
+      </div>
+      <div class="column medium-6">
+        <label ng-class="{ 'error' : add.units1.$invalid && !add.units1.$pristine }">Units
+          <select name="units1" name="units1" id="" ng-model="recipe.info[0][1]" required>
+            <option value="">(Please Choose)</option>
+            <option value="minutes">Minutes</option>
+            <option value="hours">Hours</option>
+          </select>
+        </label>
+        <small class="error" ng-show="add.units1.$invalid && !add.units1.$pristine">Invalid entry</small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column medium-6">
+        <label ng-class="{ 'error' : add.mesurement.$invalid && !add.mesurement.$pristine }">Mesurement
+          <input type="text" name="mesurement" placeholder="2-3" ng-model="recipe.info[1][0]" required/>
+        </label>
+        <small class="error" ng-show="add.mesurement.$invalid && !add.mesurement.$pristine">Invalid entry</small>
+      </div>
+      <div class="column medium-6">
+        <label ng-class="{ 'error' : add.units2.$invalid && !add.units2.$pristine }">Units
+          <select name="units2" name="units2" id="" required ng-model="recipe.info[1][1]">
+            <option value="servings">Servings</option>
+            <option value="pounds">Pounds</option>
+            <option value="oz">Ounzes</option>
+          </select>
+        </label>
+        <small class="error" ng-show="add.units2.$invalid && !add.units2.$pristine">Invalid entry</small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column medium-12">
+        <label ng-class="{ 'error' : add.health.$invalid && !add.health.$pristine }">Health Raiting
+          <input type="text" name="health" placeholder="1 ... 5" ng-model="recipe.info[2][0]" required/>
+        </label>
+        <small class="error" ng-show="add.health.$invalid && !add.health.$pristine">Invalid entry</small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column medium-6">
+        <label ng-class="{ 'error' : add.cookTime.$invalid && !add.cookTime.$pristine }">Cook Time
+          <input type="text" name="cookTime" placeholder="25" ng-model="recipe.info[3][0]" required/>
+        </label>
+        <small class="error" ng-show="add.cookTime.$invalid && !add.cookTime.$pristine">Invalid entry</small>
+      </div>
+      <div class="column medium-6">
+        <label ng-class="{ 'error' : add.units3.$invalid && !add.units3.$pristine }">Units
+          <select name="units3" id="" name="units3"ng-model="recipe.info[3][1]" required>
+            <option value="">(Please Choose)</option>
+            <option value="minutes">Minutes</option>
+            <option value="hours">Hours</option>
+          </select>
+        </label>
+        <small class="error" ng-show="add.units3.$invalid && !add.units3.$pristine">Invalid entry</small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column medium-6">
+        <label ng-class="{ 'error' : add.prepTime.$invalid && !add.prepTime.$pristine }">Prep Time
+          <input type="text" name="prepTime" placeholder="30" ng-model="recipe.info[4][0]" required/>
+        </label>
+        <small class="error" ng-show="add.prepTime.$invalid && !add.prepTime.$pristine">Invalid entry</small>
+      </div>
+      <div class="column medium-6">
+        <label ng-class="{ 'error' : add.units4.$invalid && !add.units4.$pristine }">Units
+          <select name="units4" name="units4" id="" ng-model="recipe.info[4][1]" required>
+            <option value="">(Please Choose)</option>
+            <option value="minutes">Minutes</option>
+            <option value="hours">Hours</option>
+          </select>
+        </label>
+        <small class="error" ng-show="add.units4.$invalid && !add.units4.$pristine">Invalid entry</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="column medium-6">
+    <div class="column medium-12">
+      <h4 class="left">
+        Ingredents
+      </h4>
+      <div class="right">
+        <a href="#" class="button tiny" ng-click="recipe.ingredents.push([])"><i class="fa fa-plus"></i></a>
+      </div>
+    </div>
+    <div class="column medium-12">
+      <table style="width:100%">
+        <tbody>
+          <tr ng-repeat="ing in recipe.ingredents">
+            <td>
+              <input type="text" name="ingname{{$index}}" ng-model="ing[0]" placeholder="Flower" >
+
+            </td>
+            <td>
+              <div class="small-4 column ">
+                <select name="" id="" ng-model="ing[2]" >
+                  <option value="C">C</option>
+                  <option value="Oz">Oz</option>
+                  <option value="Ts">Ts</option>
+                  <option value="Tbs">Tbs</option>
+                  <option value="Lb">Lb</option>
+                  <option value="G">G</option>
+                </select>
+              </div>
+              <div class="small-5 column "><input type="text" name="ing.amount" id=""ng-model="ing[1]" placeholder="2 1/2" ></div>
+              <div class="column small-3 "><a href ng-click="recipe.ingredents.splice($index, 1)" class="button tiny alert"><i class="fa fa-trash-o"></i></a></div>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="column medium-6">
+    <h4>
+      Directions
+    </h4>
+    <hr>
+
+      <label ng-class="{ 'error' : add.directions.$invalid && !add.directions.$pristine }">Textarea Label
+        <textarea style="height:100px" name="directions" ng-model="recipe.directions" placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, eligendi quis omnis ducimus inventore. Fugiat, ipsa, necessitatibus, unde omnis adipisci sed nostrum animi sit distinctio quaerat placeat magnam ratione! Aperiam." required></textarea>
+      </label>
+      <small class="error" ng-show="add.directions.$invalid && !add.directions.$pristine">Invalid entry</small>
+      <button class="button right success">Update Recipe</button>
+  </div>
+</div>
+
+</form>

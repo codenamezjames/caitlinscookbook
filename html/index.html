@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" ng-app="cookbook">
+<head>
+  <meta charset="UTF-8">
+  <title ng-bind="title"></title>
+  <link rel="stylesheet" href="/bower_components/foundation/css/foundation.min.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="/public/css/styles.css">
+
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-route/angular-route.js"></script>
+
+  <script src="/public/js/lib/angular-foundation.js"></script>
+
+  <script src="/public/js/app.js"></script>
+  <script src="/public/js/routes.js"></script>
+  <script src="/public/js/factory.js"></script>
+  <script src="/public/js/controllers.js"></script>
+
+
+</head>
+  <body ng-controller="masterCtrl">
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><a ng-href="/index">Caitlins Cook Book</a></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li>
+          <a ng-href="/index">Index</a>
+        </li>
+        <li>
+          <a ng-href="/add">Add</a>
+        </li>
+        <li>
+          <a ng-href="/print">Print</a>
+        </li>
+
+      </ul>
+    </section>
+  </nav>
+  <div class="row">
+    <div class="large-12 column">
+        <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+    </div>
+  </div>
+  <div ng-view></div>
+  </body>
+</html>

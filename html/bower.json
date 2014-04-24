@@ -1,0 +1,27 @@
+{
+  "name": "boilerplate",
+  "version": "0.0.0",
+  "authors": [
+    "James Harrington <indoisfun@gmail.com>"
+  ],
+  "description": "Boiler plate to make other apps faster to start",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "~3.1.1",
+    "angular": "~1.2.16",
+    "jquery": "~2.1.0",
+    "angular-route": "~1.2.16"
+  },
+  "dependencies": {
+    "angular-flash": "~0.1.13"
+  }
+}
